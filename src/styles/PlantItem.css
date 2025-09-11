@@ -3,10 +3,11 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 800px;
+    align-items: center;
 }
 .plantItem { /*il s'agit du card d'une plante comment ils sont positionee*/
     position: relative;
-    margin: 10px;
+    margin: 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
