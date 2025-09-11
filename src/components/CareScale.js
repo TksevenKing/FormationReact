@@ -16,6 +16,8 @@ function CareScale({careType, scaleValue}){
         
     )
 }
+ 
+
 
 
 export default CareScale;

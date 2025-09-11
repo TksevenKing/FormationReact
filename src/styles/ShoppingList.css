@@ -9,33 +9,4 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 800px;
-
-}
-.plantItem {
-    margin: 5px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-.plantPhoto img {
-    width: 250px;
-    height: 250px;
-    border: none;
-    border-radius: 20px;
-}
-.plantPhoto {
-    position: relative;
-}
-.lmj-sales {
-    position: absolute;
-    right: 0;
-    background-color: #31b572;
-    height: 50px;
-    width: 50px;
-    border-radius: 15px 15px 15px 0 ;
-    text-align: center;
-    padding: 5px 3px 3px 3px;
-    color: white;
-    font-weight: bold;
 }

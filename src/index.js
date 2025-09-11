@@ -4,6 +4,12 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
+
+
+
+//index.js : Le point d'entrée de votre application. C'est le fichier où l'application React 
+// est initialisée et montée dans le DOM de votre fichier index.html. 
+//index.css: et App.css : Fichiers de style pour les composants correspondants
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
