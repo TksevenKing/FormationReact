@@ -2,7 +2,7 @@
 import Banner from "./Banner";
 import Footer from "./Footer";
 import QuestionForm from "./QuestionForm";
-// import Cart from "./Cart";
+import Cart from "./Cart";
 import ShoppingList from "./ShoppingList";
 
 // cest ici qu'on placera tous nos components pour qu'il soit visible dans le naviguateur
@@ -11,9 +11,11 @@ function App() {
   return (
     <>
         <Banner/>
-        {/* <Cart/> */}
-        <ShoppingList/>
-        <QuestionForm/>
+        <div className="body">
+            <Cart/>
+            <ShoppingList/>
+            <QuestionForm/>
+        </div>
         <Footer/>
         
 
