@@ -1,9 +1,3 @@
-.plantList1 {
-    /* display: none; */
-    background-color: pink;
-    width: 70%;
-}
-
 .plantItemList {
     list-style-type:none; /* Pour masquer les points de la liste*/
     display: flex;

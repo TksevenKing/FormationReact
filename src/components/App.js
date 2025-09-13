@@ -1,7 +1,7 @@
-// import './App.css';
+import '../styles/App.css';
 import Banner from "./Banner";
 import Footer from "./Footer";
-import QuestionForm from "./QuestionForm";
+// import QuestionForm from "./QuestionForm";
 import Cart from "./Cart";
 import ShoppingList from "./ShoppingList";
 
@@ -12,9 +12,14 @@ function App() {
     <>
         <Banner/>
         <div className="body">
+          <div className="panier">
             <Cart/>
+          </div>
+          <div className="plantList">
             <ShoppingList/>
-            <QuestionForm/>
+          </div>
+            
+            {/* <QuestionForm/> */}
         </div>
         <Footer/>
         
