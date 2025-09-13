@@ -1,5 +1,6 @@
 // import './App.css';
 import Banner from "./Banner";
+import QuestionForm from "./QuestionForm";
 // import Cart from "./Cart";
 import ShoppingList from "./ShoppingList";
 
@@ -12,6 +13,7 @@ function App() {
         <Banner/>
         {/* <Cart/> */}
         <ShoppingList/>
+        <QuestionForm/>
         
 
     </>
