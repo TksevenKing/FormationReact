@@ -1,0 +1,6 @@
+footer{
+    height: 200px;
+    text-align: center;
+    align-content: center; /*Pour aligner le contenu au centre*/
+    border-top: solid 2px;
+}
