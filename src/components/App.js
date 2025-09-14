@@ -4,19 +4,23 @@ import Footer from "./Footer";
 // import QuestionForm from "./QuestionForm";
 import Cart from "./Cart";
 import ShoppingList from "./ShoppingList";
+import { useState } from 'react'
 
 // cest ici qu'on placera tous nos components pour qu'il soit visible dans le naviguateur
 //Le composant principal de votre application, souvent le premier que vous modifiez pour construire l'interface utilisateur. 
 function App() {
+    // faire remonter le state dans le composant parent
+    const [cart, updateCart] = useState(0) //valeur initial de cart = 0
   return (
     <>
         <Banner/>
         <div className="body">
           <div className="panier">
-            <Cart/>
+            {/* l'etat est passe au enfants a travers les props */}
+            <Cart cart={cart} updateCart={updateCart} />
           </div>
           <div className="plantList">
-            <ShoppingList/>
+            <ShoppingList cart={cart} updateCart={updateCart} />
           </div>
             
             {/* <QuestionForm/> */}

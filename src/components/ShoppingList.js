@@ -18,7 +18,7 @@ const categories = plantList.reduce(
         acc.includes(plant.category) ? acc : acc.concat(plant.category), []
 )
 
-function ShoppingList() {
+function ShoppingList({cart, updateCart}) {
     
     return (
         <div>
@@ -29,8 +29,17 @@ function ShoppingList() {
             {/* Voici la bonne pratique pour afficher une liste d'article en REACT pour que le style soit au RDV */}
             <ul className='plantItemList'>
                     {plantList.map((plant) => (
-                        
-                        <PlantItem key={plant.id} name={plant.name} cover={plant.cover} id={plant.id} light={plant.light} water={plant.water}/>
+                        <div key={plant.id}> {/* je met plantItem et button dans un div pour eviter de le mettre dans plantItem et button separement l'erreur de la unique Key puisqu'une liste doit retourner des elts unique */}
+                            <PlantItem  
+                                name={plant.name}
+                                cover={plant.cover} 
+                                id={plant.id} 
+                                light={plant.light} 
+                                water={plant.water}
+                            />
+                            <button onClick={() => updateCart(cart +1)}>Ajouter</button>
+                        </div>
+
                         
                         
                     ))}
