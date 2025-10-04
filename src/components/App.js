@@ -10,7 +10,8 @@ import { useState } from 'react'
 //Le composant principal de votre application, souvent le premier que vous modifiez pour construire l'interface utilisateur. 
 function App() {
     // faire remonter le state dans le composant parent
-    const [cart, updateCart] = useState(0) //valeur initial de cart = 0
+    const [cart, updateCart] = useState([]) // On initialise cart (le panier) comme un tableau d'objet vide qui contiendra chaque
+                                        //chaque plante avec ses proprietes (type, qte, etc) quand on cliquera sur ajouter
   return (
     <>
         <Banner/>

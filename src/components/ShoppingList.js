@@ -2,15 +2,12 @@ import '../styles/ShoppingList.css'
 import '../styles/PlantItem.css'
 import { plantList } from '../datas/PlantList';
 import PlantItem from './PlantItem';
+import Categories from './Categories';
+import { useState } from 'react';
 
 
-// const plantList1 = [
-//     'montserra',
-//     'ficus lyrrata',
-//     'pothos argente',
-//     'yucca',
-//     'palmier'
-// ]
+
+
 
 // Je dois constitue une nouvelle liste contenant les categorie unique des plantes // copie sans doublons
 const categories = plantList.reduce(
@@ -19,16 +16,40 @@ const categories = plantList.reduce(
 )
 
 function ShoppingList({cart, updateCart}) {
+
+    const [currentCat, updateCurrentCat] = useState("")
+    // Ajout de la fonction addTCart()
+    function addToCart(name, price) {
+        // Verifier si l'elt est deja dans le panier et le garder
+        let plantToAdd = cart.find(plant => plant.name === name)
     
+    if(plantToAdd){
+        // On cree un nouveau tableau sans elle 
+        const cartFiltered = cart.filter((plant) => plant.name !== name)
+        // Mettre a jour le panier avec la nouvelle liste contenant sa nouvelle qte
+        updateCart([...cartFiltered, {name, price, amount: plantToAdd.amount + 1}])
+    }else{
+        //sinon on ajoute un nouvelle elt avec sa qte=1
+        updateCart([...cart, {name, price, amount:1}])
+    }
+
+    }
+    // Filter the plant list based on the selected category
+    const NewPlantList = currentCat.trim() === "" ? plantList : plantList.filter((plant) => plant.category === currentCat);
+    
+    // const NewPlantList = plantList.filter((plant) => plant.category === currentcat)
     return (
         <div>
+            {/* Ajout de categorie avec l'affichage en fonction des categories */}
+            
+            <Categories currentCat={currentCat} updateCurrentCat={updateCurrentCat} />
             <ul>
                 {categories.map((categorie) => <li key={categorie}>{categorie}</li>)}
             </ul>
 
             {/* Voici la bonne pratique pour afficher une liste d'article en REACT pour que le style soit au RDV */}
             <ul className='plantItemList'>
-                    {plantList.map((plant) => (
+                    {NewPlantList.map((plant) => (
                         <div key={plant.id}> {/* je met plantItem et button dans un div pour eviter de le mettre dans plantItem et button separement l'erreur de la unique Key puisqu'une liste doit retourner des elts unique */}
                             <PlantItem  
                                 name={plant.name}
@@ -37,7 +58,7 @@ function ShoppingList({cart, updateCart}) {
                                 light={plant.light} 
                                 water={plant.water}
                             />
-                            <button onClick={() => updateCart(cart +1)}>Ajouter</button>
+                            <button onClick={() => addToCart(plant.name, plant.price)}>Ajouter</button>
                         </div>
 
                         
