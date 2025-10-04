@@ -22,7 +22,7 @@ function ShoppingList({cart, updateCart}) {
     function addToCart(name, price) {
         // Verifier si l'elt est deja dans le panier et le garder
         let plantToAdd = cart.find(plant => plant.name === name)
-    
+
     if(plantToAdd){
         // On cree un nouveau tableau sans elle 
         const cartFiltered = cart.filter((plant) => plant.name !== name)

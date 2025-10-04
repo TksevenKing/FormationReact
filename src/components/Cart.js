@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import '../styles/Cart.css'
 
 function Cart({cart, updateCart}) {
 
-  const [isOpen, setIsOpen] = useState(false)
+  // cart.forEach(plant => {
+  //   localStorage.setItem("plants", "test")
+  // })
+  // localStorage.setItem("monstera","cart")
+  // console.log(localStorage.getItem("plants"))
+  const [isOpen, setIsOpen] = useState(true)
   // Leur solution
  // const total1 = cart.reduce( //cart est tableau d'objet de plante avec le nom , le prix et la qte
     //(acc, plantType) => acc + plantType.amount * plantType.price,0 //ici le 0 est la valeur initial de l'acc
@@ -13,7 +18,13 @@ function Cart({cart, updateCart}) {
   cart.forEach(plantType => {
       total += plantType.amount * plantType.price
   });
+
+  useEffect(() => {
+      document.title= `LMJ ${total}$ d'achats`
+  }, [total])
+
   if(isOpen){
+    
     return (
         <div className='lmj-cart'>
           <button onClick={() => setIsOpen(false)}>Fermer le panier</button>
@@ -27,7 +38,9 @@ function Cart({cart, updateCart}) {
           </div>
           <h3>Total : {total}$</h3> 
           <button onClick={() => updateCart([])}>Vider le Panier</button>
+          
         </div>
+        
     )
   }else{
     return(
